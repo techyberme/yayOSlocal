@@ -56,12 +56,12 @@ st.write("""
 with st.sidebar:
      st.title('Tu Lavavajillas')
      st.info('Qué toca hoy')
-     choice = st.radio('Menú', ['precios', 'Aparatos', 'Programas', 'Datos del lavavajillas'])
-if choice == 'precios':
+     choice = st.radio('Menú', ['Precios', 'Aparatos', 'Programas', 'Datos del lavavajillas'])
+if choice == 'Precios':
      st.write("Estos son los precios")
      st.title('Gráfica de precios')
-     st.write("la media de hoy es", avg, "€/MWh")
-     st.write('el precio máximo hoy es:', maximo, '€/MWh a las',horamax,'horas' )
+     st.write("La media de hoy es", avg, "€/MWh")
+     st.write('El precio máximo hoy es:', maximo, '€/MWh a las',horamax,'horas' )
      df=pd.read_csv('data.csv')
      fig = px.line(df, x="hora", y="precio [€/MWh]", title='Precios de hoy')  #I have used plotly.express so I can see the price by passing the cursor over the graphs
      st.plotly_chart(fig)
@@ -100,7 +100,7 @@ if choice== "Programas":
                     mm, ss = secs//60, secs%60
                     st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")
                     time.sleep(1)
-                    st.write("✔️ ¡terminado!")
+                    st.write("✔️ ¡Terminado!")
         on2= col3.toggle("rápido")
         if on2:
               with col3.empty():
@@ -108,7 +108,7 @@ if choice== "Programas":
                     mm, ss = secs//60, secs%60
                     st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")
                     time.sleep(1)
-                    st.write("✔️ ¡terminado!")
+                    st.write("✔️ ¡Terminado!")
 
 if choice== "Datos del lavavajillas":
     col1, col2, col3 = st.columns([2,3,1])
