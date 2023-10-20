@@ -1,6 +1,8 @@
 // Import required modules
 const https = require('https');
+//the fs is used to write a json object in a file
 const fs = require('fs');
+//the stringify command is needed to convert to strings the elements which will be sent to a server
 const csv = require('csv-stringify');
 
 // Define the API URL for electricity prices
@@ -39,9 +41,8 @@ https.get(apiUrl, res => {
       // Parse the received JSON data
       const jsonData = JSON.parse(data);
 
-      // Create a CSV file with headers and write it
+      // Adding the headers to the .csv file
       csv.stringify([['hora', 'precio [€/MWh]']], (e, o) => fs.writeFileSync('data.csv', o));
-
       // Iterate over the specified time intervals
       for (let i = 0; i < horas.length; i++) {
         // Get data for the current hour interval
@@ -49,17 +50,17 @@ https.get(apiUrl, res => {
         console.log(`Prize of the electricity today, ${horaDato.date} :`);
         console.log(`Between ${horaDato.hour} hours the prize will be: ${horaDato.price} ${horaDato.units}`);
 
-        // Prepare data for writing to the CSV file
+        // Data that will be written in the .csv file
         dato = [[i + 1, horaDato.price]];
 
-        // Push the price into the 'precios' array
+        // Push the price into the 'precios' array so I can perform calculations
         precios.push(horaDato.price);
 
         // Append the data to the CSV file
         csv.stringify(dato, (e, o) => fs.appendFileSync('data.csv', o));
       }
 
-      // Calculate the average price
+      // Calculate the average price and the maximum
       long = precios.length;
       avg = precios.reduce((a, b) => a + b, 0) / long;
       console.log('Maximum Price:', Math.max(...precios));
