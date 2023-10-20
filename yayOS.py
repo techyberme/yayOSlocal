@@ -1,9 +1,11 @@
-import streamlit as st
+#libraries
+import streamlit as st   
 import pandas as pd
 import plotly.express as px
 import hmac
 import csv
 import time
+#security messures
 def check_password():
     """Returns `True` if the user had the correct password."""
 
@@ -15,7 +17,7 @@ def check_password():
         else:
             st.session_state["password_correct"] = False
 
-    # Return True if the passward is validated.
+    # Return True if the password is validated.
     if st.session_state.get("password_correct", False):
         return True
 
@@ -31,43 +33,53 @@ def check_password():
 if not check_password():
     st.stop()  # Do not continue if check_password is not True.
 
-precios=[]
-horas=[]
-maximo=0.0
+#definition of variables
+precios=[]  #list of prices
+horas=[]    #list of hours
+maximo=0.0  
+
+#handling the .CSV file
 with open('data.csv', mode ='r')as file:
 # reading the CSV file
     csvFile = csv.reader(file)
      # Skip the header row
     next(csvFile, None)
-    
+    #building both the precios and horas vector
     for lines in csvFile:
         precios.append(float(lines[1]))
         horas.append(lines[0])
-maximo=max(precios)
-avg=round(sum(precios)/len(precios),2)
+maximo=max(precios) #look for the maximum price
+avg=round(sum(precios)/len(precios),2)  #average price of the day
 posmax=precios.index(maximo) #gets the position of the maximum value
-horamax= horas[posmax]
+horamax= horas[posmax]       #max price time
 
+#let's start building the app
+
+#title
 st.write("""
 # Hola Yay@
 
 """)
- 
+#build a sidebar in which it is possible to choose over several sections
 with st.sidebar:
      st.title('Tu Lavavajillas')
      st.info('Qué toca hoy')
+    #definition of sections
      choice = st.radio('Menú', ['Precios', 'Aparatos', 'Programas', 'Datos del lavavajillas'])
+#"Precios" section
 if choice == 'Precios':
      st.write("Estos son los precios")
      st.title('Gráfica de precios')
-     st.write("La media de hoy es", avg, "€/MWh")
-     st.write('El precio máximo hoy es:', maximo, '€/MWh a las',horamax,'horas' )
+     st.write("La media de hoy es", avg, "€/MWh") #write down the average
+     st.write('El precio máximo hoy es:', maximo, '€/MWh a las',horamax,'horas' ) #write down the maximum price
+    #building of the chart
      df=pd.read_csv('data.csv')
      fig = px.line(df, x="hora", y="precio [€/MWh]", title='Precios de hoy')  #I have used plotly.express so I can see the price by passing the cursor over the graphs
      st.plotly_chart(fig)
-     
+ #"Aparatos" section    
 if choice == 'Aparatos':
      col1, col2, col3 = st.columns([2,3,1])
+    #naming of a toggle button to turn on and off the dishwasher
      boton='lavavajillas'
      on = col1.toggle(boton)
      if on:
@@ -76,22 +88,25 @@ if choice == 'Aparatos':
      else: 
            
           col2.write(":x:")
+    #another example of a button
      st.write('Secadora')
      container_2 = st.empty()
      button_A = container_2.button('Encender')
      if button_A:
           container_2.empty()
           button_B = container_2.button('Apagar')
+          #"Programas" section   
 if choice== "Programas":
         st.subheader('Escoge el programa')
         col1, col2, col3 = st.columns([3,3,3])
+    #toggle buttons are used to choose the washing program
         on=col1.toggle("económico")
         if on:
-          with st.empty():
+          with st.empty():   #this an object used to have a dynamic visualization
                for secs in range(1200,0,-1):
                     mm, ss = secs//60, secs%60
-                    st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")
-                    time.sleep(1)
+                    st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")  #display of the minutes left
+                    time.sleep(1)                                    #wait 
                     st.write("✔️ ¡terminado!")
         on1= col2.toggle("a fondo")
         if on1:
@@ -109,7 +124,7 @@ if choice== "Programas":
                     st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")
                     time.sleep(1)
                     st.write("✔️ ¡Terminado!")
-
+   #"Datos del lavavajillas" section
 if choice== "Datos del lavavajillas":
     col1, col2, col3 = st.columns([2,3,1])
     col1.write("¿Puerta abierta?")
