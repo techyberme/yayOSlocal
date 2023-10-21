@@ -19,17 +19,18 @@ In the code, we have used several libraries:
 •	Hmac: Used to include an authentification form.
 
 The aim of this app is to display the electricity prices so firstly, we will display the data from the .csv file in an interactive graph in which it is possible to check the data of a specific hour by simply putting the cursor on it. Additionally, we have added relevant information such as the average daily price and the maximum price.
- 
+ <img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/f410e9cc-a664-41da-8610-06e7025ee222">
 Figure 2. 4
 Moreover, we have used the web page to add some new features to the dishwasher so as to make it a smart item. We have added a section in which it is possible to choose the program and follow the time left for it to finish and a section where we can turn on the different appliances. It is also possible to turn on and off the appliances in the section "Aparatos".
- 
+ <img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/943d4a89-7cd1-4b46-bea0-94a59235438b">
 Figure 2. 5
 Finally, we added an authentication form so the web page is secured.
 
 3.1.1 User’s monitorization
 As parents get older, the worries of their sons and daughters of them having accident increases. Situations in which an elderly person suffers an accident and is not able to look for help are more common than desired. It is thus key to make out a way in which it is possible to know if everything is ok without needing an active role of the elderly person. A way to do so is to monitor their daily habits and raise an alarm if the actions of the client are not being the expected.
 YayOS has come up with an easy solution: The dishwasher will transmit its status to the web page. For example, it will upload how many times it has been used so far in the day and whether the door is open or not. In this way, the family of the client can easily make sure he or she is fine without calling the person.
- 
+
+<img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/db212476-21a0-469a-aadc-ad69cf23e09c"> 
 Figure 2. 6
 
 An example of the web can be found in the following link: https://abuelos.streamlit.app/
