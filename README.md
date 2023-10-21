@@ -15,9 +15,13 @@ As a result, we get a file like the following:
 Figure 2. 3
 Secondly, this data is uploaded to a web page so the clients can get informed easily. In order to build the web, we have used Streamlit, a very popular open-source web builder based on the coding language Python.
 In the code, we have used several libraries:
+
 •	Pandas: A generalist library used for working with data file
+
 •	CSV: Used to work with the .csv file.
+
 •	Plotly.express: Allows to display data in interactive charts.
+
 •	Hmac: Used to include an authentification form.
 
 The aim of this app is to display the electricity prices so firstly, we will display the data from the .csv file in an interactive graph in which it is possible to check the data of a specific hour by simply putting the cursor on it. Additionally, we have added relevant information such as the average daily price and the maximum price.
