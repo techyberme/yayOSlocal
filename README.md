@@ -2,6 +2,7 @@
 <img width="452" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/d4b7e00d-993d-405b-a60e-9dc46065e1be">
  
 Figure 2. 2
+
 3.1 Web Page
 From some time to now, electricity prices have risen considerably. A dishwasher can consume up to 730 Wh a cycle so turning it on when the electricity prices are low can be a great way to save money. This can definitely be an attractive catch for elders with a low monthly income. Even though electricity prices are available of the internet, they may not be easy to find, so a simple web in which the client can check out the prices and even turn on the dishwasher might be very useful to the client.
 Additionally, the web includes a window in which the client may select the washing program from three different options and follow the time left to finish it.
@@ -19,11 +20,19 @@ In the code, we have used several libraries:
 •	Hmac: Used to include an authentification form.
 
 The aim of this app is to display the electricity prices so firstly, we will display the data from the .csv file in an interactive graph in which it is possible to check the data of a specific hour by simply putting the cursor on it. Additionally, we have added relevant information such as the average daily price and the maximum price.
- <img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/f410e9cc-a664-41da-8610-06e7025ee222">
+
+
+<img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/f410e9cc-a664-41da-8610-06e7025ee222">
+
 Figure 2. 4
+
 Moreover, we have used the web page to add some new features to the dishwasher so as to make it a smart item. We have added a section in which it is possible to choose the program and follow the time left for it to finish and a section where we can turn on the different appliances. It is also possible to turn on and off the appliances in the section "Aparatos".
- <img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/943d4a89-7cd1-4b46-bea0-94a59235438b">
+
+
+<img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/943d4a89-7cd1-4b46-bea0-94a59235438b">
+
 Figure 2. 5
+
 Finally, we added an authentication form so the web page is secured.
 
 3.1.1 User’s monitorization
@@ -31,6 +40,7 @@ As parents get older, the worries of their sons and daughters of them having acc
 YayOS has come up with an easy solution: The dishwasher will transmit its status to the web page. For example, it will upload how many times it has been used so far in the day and whether the door is open or not. In this way, the family of the client can easily make sure he or she is fine without calling the person.
 
 <img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/db212476-21a0-469a-aadc-ad69cf23e09c"> 
+
 Figure 2. 6
 
 An example of the web can be found in the following link: https://abuelos.streamlit.app/
