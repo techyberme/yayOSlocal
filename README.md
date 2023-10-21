@@ -8,6 +8,7 @@ Additionally, the web includes a window in which the client may select the washi
 
 Firstly, the app fetches data from an API called “preciodelaluz.org” wtich a code in JavaScript using the Node.js cross-platform. This API provides a great deal of data, but the program only fetches the time and price and saves it to a .csv file. In the code, the header with the names of the module is manually inserted and a for loop iterates a list containing the time interval so the code fetches the price for each time and uploads it to the data.csv file. 
 As a result, we get a file like the following:
+<img width="360" alt="image" src="https://github.com/techyberme/yayOSlocal/assets/107142731/f13db5a5-0fe6-4bc6-a63c-479abdb755a7">
 
 Figure 2. 3
 Secondly, this data is uploaded to a web page so the clients can get informed easily. In order to build the web, we have used Streamlit, a very popular open-source web builder based on the coding language Python.
