@@ -74,7 +74,8 @@ if choice == 'Precios':
      st.write('El precio máximo hoy es:', maximo, '€/MWh a las',horamax,'horas' ) #write down the maximum price
     #building of the chart
      df=pd.read_csv('data.csv')
-     fig = px.line(df, x="hora", y="precio [€/MWh]", title='Precios de hoy')  #I have used plotly.express so I can see the price by passing the cursor over the graphs
+     #I have used plotly.express so I can see the price by passing the cursor over the graphs
+     fig = px.line(df, x="hora", y="precio [€/MWh]", title='Precios de hoy')  
      st.plotly_chart(fig)
  #"Aparatos" section    
 if choice == 'Aparatos':
@@ -105,7 +106,8 @@ if choice== "Programas":
           with st.empty():   #this an object used to have a dynamic visualization
                for secs in range(1200,0,-1):
                     mm, ss = secs//60, secs%60
-                    st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")  #display of the minutes left
+                    #display of the minutes left
+                    st.metric("⏳ Quedan: ", f"{mm:02d}:{ss:02d}")  
                     time.sleep(1)                                    #wait 
                     st.write("✔️ ¡terminado!")
         on1= col2.toggle("a fondo")
