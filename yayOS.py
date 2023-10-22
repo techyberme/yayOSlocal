@@ -103,7 +103,7 @@ if choice== "Programas":
     #toggle buttons are used to choose the washing program
         on=col1.toggle("económico")
         if on:
-          with st.empty():   #this an object used to have a dynamic visualization
+          with st.empty():   #this is an object used to have a dynamic visualization
                for secs in range(1200,0,-1):
                     mm, ss = secs//60, secs%60
                     #display of the minutes left
